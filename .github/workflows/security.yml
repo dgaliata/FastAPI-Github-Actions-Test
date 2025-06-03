@@ -178,7 +178,7 @@ jobs:
     steps:
     - name: Create Security Summary
       run: |
-        echo "## 🛡️ Comprehensive Security Scan Results" >> $GITHUB_STEP_SUMMARY
+        echo "## Security Scan Results" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         
         # Test results
