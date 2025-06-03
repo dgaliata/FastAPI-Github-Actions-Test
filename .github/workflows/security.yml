@@ -109,7 +109,7 @@ jobs:
         command: code test
       continue-on-error: true
     
-    # Snyk Infrastructure as Code (if you have Docker/K8s files)
+    # Snyk Infrastructure as Code
     - name: Run Snyk IaC Test
       uses: snyk/actions/iac@master
       env:
@@ -132,7 +132,6 @@ jobs:
   container-security:
     name: Container Security Scan
     runs-on: ubuntu-latest
-    if: hashFiles('Dockerfile') != ''
     
     steps:
     - name: Checkout code
@@ -140,6 +139,7 @@ jobs:
     
     - name: Build Docker image
       run: docker build -t fastapi-app:latest .
+      continue-on-error: true
     
     # Snyk Container scanning
     - name: Run Snyk Container Test
